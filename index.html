@@ -20,17 +20,17 @@
       color: #333333;
     }
     .account {
-      margin: 20px 0;
+      margin: 18px 0;
       font-size: clamp(18px, 3.5vw, 24px);
-      font-weight: 300;
+      font-weight: 500;
       color: #333333;
       word-break: keep-all;
     }
     .fee {
-      margin: 15px 0 30px;
+      margin: 18px 0 30px;
       font-size: clamp(16px, 3vw, 20px);
       color: #462679; /* 메인컬러 강조 */
-      font-weight: 400;
+      font-weight: 500;
     }
     button {
       background-color: #462679; /* 행사 메인 컬러 */
@@ -48,9 +48,9 @@
   </style>
 </head>
 <body>
-  <h2>계좌번호</h2>
+  <h2>현장예매 계좌번호</h2>
   <div class="account">국민은행 556601-01-404895<br>(손*지, 커뮤니케이션 다움)</div>
-  <div class="fee">성인 10,000원 / 미성년자 5,000원</div>
+  <div class="fee">참가비: 성인 10,000원 / 미성년자 5,000원</div>
   <button onclick="copyAccount()">계좌번호 복사하기</button>
 
   <script>
@@ -65,65 +65,3 @@
   </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>계좌번호 복사</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Noto Sans KR 폰트 불러오기 -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Noto Sans KR', sans-serif;
-      text-align: center;
-      padding: 5vw;
-      background-color: #f9f9f9;
-      color: #333333; /* 기본 폰트 색상 */
-    }
-    h2 {
-      margin-bottom: 20px;
-      font-size: clamp(20px, 4vw, 28px);
-      color: #333333;
-    }
-    .account {
-      margin: 20px 0;
-      font-size: clamp(18px, 3.5vw, 24px);
-      font-weight: 700;
-      color: #333333;
-      word-break: keep-all;
-    }
-    button {
-      background-color: #462679; /* 행사 메인 컬러 */
-      color: white;
-      padding: 12px 24px;
-      font-size: clamp(16px, 3.5vw, 20px);
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-    button:hover {
-      background-color: #5a33a3; /* hover 시 조금 더 밝은 보라색 */
-    }
-  </style>
-</head>
-<body>
-  <h2>계좌번호</h2>
-  <div class="account">국민은행 556601-01-404895<br>(손*지, 커뮤니케이션 다움)</div>
-  <button onclick="copyAccount()">계좌번호 복사하기</button>
-
-  <script>
-    function copyAccount() {
-      const account = "55660101404895"; // 실제 계좌번호 (하이픈 제외)
-      navigator.clipboard.writeText(account).then(() => {
-        alert("계좌번호가 복사되었습니다!");
-      }).catch(err => {
-        alert("복사 실패. 직접 복사해주세요.");
-      });
-    }
-  </script>
-</body>
-</html>
-
-
