@@ -3,44 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>계좌번호 복사</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Noto Sans KR 폰트 불러오기 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 5vw;
+      background-color: #f9f9f9;
+      color: #333333; /* 기본 폰트 색상 */
     }
     h2 {
       margin-bottom: 20px;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 15px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
+      font-size: clamp(20px, 4vw, 28px);
+      color: #333333;
     }
     .account {
       margin: 20px 0;
-      font-size: 20px;
-      font-weight: bold;
+      font-size: clamp(18px, 3.5vw, 24px);
+      font-weight: 700;
+      color: #333333;
+      word-break: keep-all;
+    }
+    button {
+      background-color: #462679; /* 행사 메인 컬러 */
+      color: white;
+      padding: 12px 24px;
+      font-size: clamp(16px, 3.5vw, 20px);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #5a33a3; /* hover 시 조금 더 밝은 보라색 */
     }
   </style>
 </head>
 <body>
-  <h2>2025 별바다부산 나이트뮤직 캠크닉 현장예매 계좌이체</h2>
-  <br>
-  <br>
-  <div class="account"> 국민은행 556601-01-404895 (손*지, 커뮤니케이션 다움)</div>
+  <h2>계좌번호</h2>
+  <div class="account">국민은행 556601-01-404895<br>(손*지, 커뮤니케이션 다움)</div>
   <button onclick="copyAccount()">계좌번호 복사하기</button>
 
   <script>
     function copyAccount() {
-      const account = "55660101404895"; // 계좌번호만
+      const account = "55660101404895"; // 실제 계좌번호 (하이픈 제외)
       navigator.clipboard.writeText(account).then(() => {
         alert("계좌번호가 복사되었습니다!");
       }).catch(err => {
@@ -50,4 +58,3 @@
   </script>
 </body>
 </html>
-
