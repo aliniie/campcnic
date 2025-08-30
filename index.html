@@ -26,11 +26,37 @@
       color: #333333;
       word-break: keep-all;
     }
+    .account .owner {
+      display: block;
+      font-size: clamp(14px, 2.5vw, 16px); /* 예금주 부분만 작게 */
+      font-weight: 400;
+      margin-top: 6px;
+      color: #555; /* 살짝 연한 회색 */
+    }
     .fee {
-      margin: 18px 0 30px;
+      display: inline-block;
+      margin: 20px 0 30px;
       font-size: clamp(16px, 3vw, 20px);
-      color: #462679; /* 메인컬러 강조 */
-      font-weight: 500;
+      font-weight: 600;
+      color: #462679;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #462679, #ff6ec7);
+      -webkit-background-clip: padding-box;
+      position: relative;
+    }
+    .fee::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2px; /* 테두리 두께 (2~3px) */
+      border-radius: 10px;
+      background: linear-gradient(90deg, #462679, #ff6ec7);
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
     }
     button {
       background-color: #462679; /* 행사 메인 컬러 */
@@ -49,8 +75,12 @@
 </head>
 <body>
   <h2>현장예매 계좌번호</h2>
-  <div class="account">국민은행 556601-01-404895<br>(손*지, 커뮤니케이션 다움)</div>
+  <div class="account">
+    국민은행 556601-01-404895
+    <span class="owner">(손*지, 커뮤니케이션 다움)</span>
+  </div>
   <div class="fee">참가비: 성인 10,000원 / 미성년자 5,000원</div>
+  <br>
   <button onclick="copyAccount()">계좌번호 복사하기</button>
 
   <script>
