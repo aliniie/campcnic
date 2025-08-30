@@ -38,18 +38,18 @@
       margin: 20px 0 30px;
       font-size: clamp(16px, 3vw, 20px);
       font-weight: 600;
-      color: #ffffff;
+      color: #462679;
       padding: 10px 20px;
       border-radius: 10px;
-      background: linear-gradient(90deg, #462679, #ff6ec7);
-      -webkit-background-clip: padding-box;
+      background: #fff; /* 안쪽 흰색 */
       position: relative;
+      z-index: 1;
     }
     .fee::before {
       content: "";
       position: absolute;
       inset: 0;
-      padding: 2px; /* 테두리 두께 (2~3px) */
+      padding: 2.5px; /* 테두리 두께 */
       border-radius: 10px;
       background: linear-gradient(90deg, #462679, #ff6ec7);
       -webkit-mask: 
@@ -57,19 +57,20 @@
         linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
               mask-composite: exclude;
+      z-index: -1;
     }
     button {
-      background-color: #462679; /* 행사 메인 컬러 */
+      background: linear-gradient(90deg, #462679, #ff6ec7); /* 그라데이션 배경 */
       color: white;
       padding: 12px 24px;
       font-size: clamp(16px, 3.5vw, 20px);
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      transition: opacity 0.2s ease;
     }
     button:hover {
-      background-color: #5a33a3; /* hover 시 조금 더 밝은 보라색 */
+      opacity: 0.9; /* hover 시 살짝 어두워지는 효과 */
     }
   </style>
 </head>
@@ -95,4 +96,3 @@
   </script>
 </body>
 </html>
-
