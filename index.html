@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>계좌번호 복사</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .account {
+      margin: 20px 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>계좌번호</h2>
+  <div class="account"> 국민은행 556601-01-404895 (손*지, 커뮤니케이션 다움)</div>
+  <button onclick="copyAccount()">계좌번호 복사하기</button>
+
+  <script>
+    function copyAccount() {
+      const account = "1002123456789"; // 계좌번호만
+      navigator.clipboard.writeText(account).then(() => {
+        alert("계좌번호가 복사되었습니다!");
+      }).catch(err => {
+        alert("복사 실패. 직접 복사해주세요.");
+      });
+    }
+  </script>
+</body>
+</html>
