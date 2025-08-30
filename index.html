@@ -12,7 +12,7 @@
       text-align: center;
       padding: 5vw;
       background-color: #f9f9f9;
-      color: #333333; /* 기본 폰트 색상 */
+      color: #333333;
     }
     h2 {
       margin-bottom: 20px;
@@ -28,10 +28,10 @@
     }
     .account .owner {
       display: block;
-      font-size: clamp(14px, 2.5vw, 16px); /* 예금주 부분만 작게 */
+      font-size: clamp(14px, 2.5vw, 16px);
       font-weight: 400;
       margin-top: 6px;
-      color: #555; /* 살짝 연한 회색 */
+      color: #555;
     }
     .fee {
       display: inline-block;
@@ -39,17 +39,18 @@
       font-size: clamp(16px, 3vw, 20px);
       font-weight: 600;
       color: #462679;
-      padding: 10px 20px;
+      padding: 12px 20px;
       border-radius: 10px;
-      background: #fff; /* 안쪽 흰색 */
+      background: #fff;
       position: relative;
       z-index: 1;
+      text-align: left; /* 내부 글자 왼쪽 정렬 */
     }
     .fee::before {
       content: "";
       position: absolute;
       inset: 0;
-      padding: 2.5px; /* 테두리 두께 */
+      padding: 2.5px;
       border-radius: 10px;
       background: linear-gradient(90deg, #462679, #ff6ec7);
       -webkit-mask: 
@@ -59,8 +60,17 @@
               mask-composite: exclude;
       z-index: -1;
     }
+    .fee-list {
+      display: flex;
+      flex-wrap: wrap; /* 줄바꿈 허용 */
+      gap: 6px 20px;   /* 줄간격, 컬럼 간격 */
+    }
+    .fee-item {
+      flex: 1 1 auto; /* 자동 줄바꿈 허용 */
+      min-width: 120px; /* 최소 너비 (모바일 대비) */
+    }
     button {
-      background: linear-gradient(90deg, #462679, #ff6ec7); /* 그라데이션 배경 */
+      background: linear-gradient(90deg, #462679, #ff6ec7);
       color: white;
       padding: 12px 24px;
       font-size: clamp(16px, 3.5vw, 20px);
@@ -70,7 +80,7 @@
       transition: opacity 0.2s ease;
     }
     button:hover {
-      opacity: 0.9; /* hover 시 살짝 어두워지는 효과 */
+      opacity: 0.9;
     }
   </style>
 </head>
@@ -80,13 +90,18 @@
     국민은행 556601-01-404895
     <span class="owner">(손*지, 커뮤니케이션 다움)</span>
   </div>
-  <div class="fee">참가비: 성인 10,000원 / 미성년자 5,000원</div>
+  <div class="fee">
+    <div class="fee-list">
+      <div class="fee-item">성인 10,000원</div>
+      <div class="fee-item">미성년자 5,000원</div>
+    </div>
+  </div>
   <br>
   <button onclick="copyAccount()">계좌번호 복사하기</button>
 
   <script>
     function copyAccount() {
-      const account = "55660101404895"; // 실제 계좌번호 (하이픈 제외)
+      const account = "55660101404895";
       navigator.clipboard.writeText(account).then(() => {
         alert("계좌번호가 복사되었습니다!");
       }).catch(err => {
